@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 app.get("/", (req, res) => {
-    res.render("home");
+    res.render("home", {time: "Time"});
 });
 
 app.get("/timesheets", (req, res) =>{
