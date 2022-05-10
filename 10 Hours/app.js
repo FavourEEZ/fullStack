@@ -15,6 +15,10 @@ app.get("/timesheets", (req, res) =>{
     res.render("timesheets")
 })
 
+app.get("/login", (req, res) =>{
+    res.render("loginPage")
+})
+
 app.listen(port, () =>{
     console.log(`currently listening on port ${port}`)
 })
