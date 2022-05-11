@@ -19,7 +19,7 @@ html {
     background-color: black;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     padding: 15px;
 }
 
@@ -28,14 +28,28 @@ html {
     float: left;
 }
 
-.wrapper-right {
-    width: 50%;
-    float: right;
-}
-
 img {
     width: 352px;
     height: 528px;
     object-fit:cover;
     object-position:25% 40%;
+}
+
+.wrapper-right {
+    margin-left: 10px;
+    width: 50%;
+    float: right;
+    text-align: center;
+}
+
+.wrapper-right h1{
+    color: wheat;
+}
+
+.btn {
+    margin-top: 100px;
+}
+.time {
+    /* display: flex;
+    align-items: center */
 }
