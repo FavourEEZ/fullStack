@@ -25,6 +25,7 @@ app.get("/login", (req, res) =>{
 app.post("/login", urlencodedParser, (req, res) =>{
     console.log(req.body)
     const {username, password } = req.body;
+    res.render("timesheets", {username: username})
     // res.send('welcome back, ' + req.body.username)
 })
 
