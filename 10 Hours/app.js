@@ -14,8 +14,8 @@ app.get("/", (req, res) => {
     res.render("home", {time: "Time"});
 });
 
-app.get("/timesheets", (req, res) =>{
-    res.render("timesheets")
+app.get("/dashboard", (req, res) =>{
+    res.render("dashboard")
 })
 
 app.get("/login", (req, res) =>{
@@ -25,7 +25,7 @@ app.get("/login", (req, res) =>{
 app.post("/login", urlencodedParser, (req, res) =>{
     console.log(req.body)
     const {username, password } = req.body;
-    res.render("timesheets", {username: username})
+    res.render("dashboard", {username: username})
     // res.send('welcome back, ' + req.body.username)
 })
 
@@ -34,12 +34,16 @@ app.get("/signup", (req, res) => {
 })
 
 app.post("/signup", urlencodedParser, (req, res) =>{
-    console.log(req.body)
+    console.log(req.body);
     const {username, email, password } = req.body;
     // res.send('Signed Up!, ' + req.body.username)
 })
 
+app.get("/entry", (req, res ) => {
+    res.render("entry");
+})
+
 app.listen(port, () =>{
-    console.log(`currently listening on port ${port}`)
+    console.log(`currently listening on port ${port}`);
 })
 module.exports.chart = chart;
