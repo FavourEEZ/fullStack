@@ -2,7 +2,9 @@
 // import { Chart } from "c:/Users/favou/Documents/Code/Web Dev/30 Days of JavaScript/Tries/fullStack/10 Hours/node_modules/chart.js/types/index.esm";
 // import { Chart } from "..\..\node_modules\chart.js";
 // import { Chart } from "chart.js";
-import { chart } from "../../app.js";
+
+
+// import { chart } from "../../app.js";
 
 const timeHeader = document.getElementById("time-header");
 const dateHeader = document.getElementById("date-header");
