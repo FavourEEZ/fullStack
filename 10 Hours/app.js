@@ -31,20 +31,26 @@ app.get("/login", (req, res) =>{
 })
 
 app.post("/login", urlencodedParser, (req, res) =>{
-    console.log(`Request body: `, req.body)
+    console.log(`Login Request body: `, req.body)
     const {username, password } = req.body;
     if (arr.length === 0){
         console.log("Please sign up first")
     } else{
         arr.forEach(element => {
             console.log(element)
-            if (username == element.username && password == element.password){
-                console.log("Username and password was not found")
-            } else {
-                console.log("You are in!")
-                res.render("dashboard", {username: username})
-    
-            }
+        if (username == element.username){
+            console.log("username checks")
+        }
+        if (password == element.password) {
+            console.log("password checks")  
+        }
+        if (username == element.username & password == element.password){
+            console.log("You are in!")
+            res.render("dashboard", {username: username})
+        } else {
+            console.log(`Username: ${username} and password: ${password} was not found`)
+
+        }
         });   
     }
     // res.send('welcome back, ' + req.body.username)
