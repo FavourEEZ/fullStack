@@ -3,10 +3,12 @@ const app = express();
 const port = 10000;
 const path = require('path');
 const chart = require("chart.js");
+const ejsMate = require('ejs-mate');
 
 const bodyParser = require("body-parser");
 let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')))
 

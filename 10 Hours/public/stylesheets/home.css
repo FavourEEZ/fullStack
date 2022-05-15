@@ -3,18 +3,6 @@ html {
     color: orange;
 }
 
-.center-nav {
-    color: wheat;
-    text-align: center;
-    display: flex!important;
-
-}
-
-.fa-user{
-    color: white;
-    padding-top: 10px;
-}
-
 .wrapper{
     background-color: black;
     display: flex;
