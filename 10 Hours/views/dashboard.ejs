@@ -9,7 +9,11 @@
 
 </head>
 <body>
-    <h1 style="text-align: left;">Welcome <%=username %>, here is your productivity history</h1>
+    <% console.log(typeof username) %>
+    <% if(typeof username === 'undefined') {%>
+    <h1 style="text-align: left;">Welcome, here is your productivity history</h1>
+    <% } else{ %>
+    <h1 style="text-align: left;">Welcome <%=username %>, here is your productivity history</h1>    <% } %>
     <a href="/entry"><p>Add a new entry</a>
     <div style="display: flex; justify-content: center;">
         <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGdyYXBofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">

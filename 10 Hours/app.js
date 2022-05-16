@@ -28,6 +28,10 @@ app.get("/dashboard", (req, res) =>{
     res.render("dashboard")
 })
 
+app.post("/dashboard", (req, res) =>{
+    res.render("dashboard")
+})
+
 app.get("/login", (req, res) =>{
     res.render("loginPage")
 })
