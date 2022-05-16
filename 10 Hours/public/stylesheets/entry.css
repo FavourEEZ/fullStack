@@ -1,4 +1,5 @@
 
-button{
-    margin-left: 115px;
+.div-btn {
+    display: flex;
+    justify-content: center;
 }
