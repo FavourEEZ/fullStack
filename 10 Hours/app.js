@@ -11,7 +11,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views")) //Allows us to run our server from any dir without outputing any errors. Get current dir for app.js and join the full path to /views 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public'))) //Serving static files. __dirname gets absolute path to app.js then adds public
 
 arr = []
 function saveSignUps(username, email, password, res) {
@@ -35,7 +35,7 @@ app.get("/leaderboard", (req, res) => {
 
           ]
 
-    res.render("leaderboard", {topUsers: topUsers});
+    res.render("leaderboard", {topUsers: topUsers}); //If it was a nested object, would've just used spread {topUsers: ...topUsers} Lc. 351 (Udemy)
 })
 
 app.get("/dashboard", (req, res) =>{
