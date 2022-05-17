@@ -10,7 +10,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname), "/views") //Allows us to run our server from any dir without outputing any errors. Get current dir for app.js and join the full path to /views 
+app.set("views", path.join(__dirname, "/views")) //Allows us to run our server from any dir without outputing any errors. Get current dir for app.js and join the full path to /views 
 app.use(express.static(path.join(__dirname, 'public')))
 
 arr = []
