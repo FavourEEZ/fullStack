@@ -10,6 +10,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname), "/views") //Allows us to run our server from any dir without outputing any errors. Get current dir for app.js and join the full path to /views 
 app.use(express.static(path.join(__dirname, 'public')))
 
 arr = []
@@ -78,6 +79,11 @@ app.post("/signup", urlencodedParser, (req, res) =>{
 app.get("/entry", (req, res ) => {
     res.render("entry");
 })
+
+// app.get("/search", (req, res) =>{
+//     console.log(req.query) // /search?q=cat
+//     const {q} = req.query //Assuming that there is query string called q.
+// })
 
 app.listen(port, () =>{
     console.log(`currently listening on port ${port}`);
