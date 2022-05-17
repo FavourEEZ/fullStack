@@ -25,6 +25,19 @@ app.get("/", (req, res) => {
     res.render("home", {time: "Time"});
 });
 
+app.get("/leaderboard", (req, res) => {
+    topUsers = [{name: "Natalie Portman", hours: 10},
+                {name: "Elon Musk", hours: 17},
+                {name: "Tony Stark", hours: 12},
+                {name: "Thor", hours: 3},
+                {name: "FavourEEZ", hours: 18},
+                {name: "Elisabeth Olsen", hours: 5},
+
+          ]
+
+    res.render("leaderboard", {topUsers: topUsers});
+})
+
 app.get("/dashboard", (req, res) =>{
     res.render("dashboard")
 })
