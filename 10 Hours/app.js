@@ -13,8 +13,10 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views")) //Allows us to run our server from any dir without outputing any errors. Get current dir for app.js and join the full path to /views 
 app.use(express.static(path.join(__dirname, 'public'))) //Serving static files. __dirname gets absolute path to app.js then adds public
 
-arr = []
-function saveSignUps(username, email, password, res) {
+arr = [{username: "admin", email: "admin@admin.com", password: "admin"},
+    {username: "Natalie Portman", email: "natalieportman@gmail.com", password: "Genius"}]
+
+    function saveSignUps(username, email, password, res) {
     console.log("saveSignUps called");
     arr.push({username, email, password})
     console.log(`Amount of values: ${arr.length}`)
@@ -42,8 +44,8 @@ app.get("/dashboard", (req, res) =>{
     res.render("dashboard")
 })
 
-app.post("/dashboard", (req, res) =>{
-    console.log(`Post request from /entry: ${req.body}`, req.body)
+app.post("/dashboard", urlencodedParser, (req, res) =>{
+    console.log("Post request from /entry:", req.body)
     // const {date, hours} = req.body
     res.render("dashboard")
 })
