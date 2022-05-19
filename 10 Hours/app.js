@@ -77,7 +77,6 @@ app.post("/login", urlencodedParser, (req, res) =>{
         }
         });   
     }
-    // res.send('welcome back, ' + req.body.username)
 })
 
 app.get("/signup", (req, res) => {
@@ -88,7 +87,6 @@ app.post("/signup", urlencodedParser, (req, res) =>{
     console.log(req.body);
     const {username, email, password } = req.body;
     saveSignUps(username, email, password, res)
-    // res.send('Signed Up!, ' + req.body.username)
 })
 
 app.get("/entry", (req, res ) => {
