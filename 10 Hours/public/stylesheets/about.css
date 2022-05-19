@@ -1,0 +1,17 @@
+html {
+    text-align: center;
+}
+
+#about {
+    margin-bottom: 30px;
+}
+.text-wrapper {
+    /* display: flex; */
+    margin: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+}
+
+span {
+    font-size: large;
+}

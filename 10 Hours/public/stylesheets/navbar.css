@@ -13,3 +13,8 @@ nav {
     color: white;
     padding-top: 10px;
 }
+
+h1 a {
+    color: wheat;
+    text-decoration: none;
+}
