@@ -54,6 +54,10 @@ app.post("/dashboard", urlencodedParser, (req, res) =>{
     res.render("dashboard")
 })
 
+app.get("/dashboard/entry", (req, res ) => {
+    res.render("entry");
+})
+
 app.get("/login", (req, res) =>{
     res.render("loginPage")
 })
@@ -91,10 +95,6 @@ app.post("/signup", urlencodedParser, (req, res) =>{
     console.log(req.body);
     const {username, email, password } = req.body;
     saveSignUps(username, email, password, res)
-})
-
-app.get("/entry", (req, res ) => {
-    res.render("entry");
 })
 
 // app.get("/search", (req, res) =>{
