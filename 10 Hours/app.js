@@ -50,7 +50,8 @@ app.get("/dashboard", (req, res) =>{
 
 app.post("/dashboard", urlencodedParser, (req, res) =>{
     console.log("Post request from /entry:", req.body)
-    // const {date, hours} = req.body
+    const {date, hours} = req.body
+    
     res.render("dashboard")
 })
 
