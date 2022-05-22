@@ -4,10 +4,18 @@ const port = 10000;
 const path = require('path');
 const chart = require("chart.js");
 const ejsMate = require('ejs-mate');
+const methodOverride = require("method-override");
+const { v4: uuidv4 } = require("uuid") //Destructuring and providing a new name to the module
+uuidv4(); // CommonJS syntax
+// import { v4 as uuidv4 } from 'uuid';
+// uuidv4() Using ES6 module syntax
 
 const bodyParser = require("body-parser");
 let urlencodedParser = bodyParser.urlencoded({ extended: false })
+// app.use(express.urlencoded({extended: true}))
+// app.use(express.json())
 
+app.use(methodOverride("_method")) //Allows us to use other HTTP methods like PATCH and DELETE, when _method is referenced, we put the method we want like patch: ?_method=PATCH
 app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views")) //Allows us to run our server from any dir without outputing any errors. Get current dir for app.js and join the full path to /views 
@@ -51,7 +59,7 @@ app.get("/dashboard", (req, res) =>{
 app.post("/dashboard", urlencodedParser, (req, res) =>{
     console.log("Post request from /entry:", req.body)
     const {date, hours} = req.body
-    
+
     res.render("dashboard")
 })
 
@@ -68,23 +76,29 @@ app.post("/login", urlencodedParser, (req, res) =>{
     const {username, password } = req.body;
     if (arr.length === 0){
         console.log("Please sign up first")
-    } else{
-        arr.forEach(element => {
-            console.log(element)
-        if (username == element.username){
-            console.log("username checks")
-        }
-        if (password == element.password) {
-            console.log("password checks")  
-        }
-        if (username == element.username & password == element.password){
-            console.log("You are in!")
-            res.render("dashboard", {username: username})
+    } else {
+        let authenticated = arr.find(el => el.username === username && el.password === password);
+        if (authenticated){
+            console.log("Yesss!")
         } else {
             console.log(`Username: ${username} and password: ${password} was not found`)
-
+            console.log("Password or username not found!") 
         }
-        });   
+
+        // arr.forEach(element => {
+        //     // console.log(element)
+        // if (username === element.username && password === element.password){
+        //     console.log("You are in! Username and password checks")
+        //     res.render("dashboard", {username: username})
+        // } else if (username == element.username){
+        //     console.log("username checks")
+        // } else if (password == element.password) {
+        //     console.log("password checks")  
+        // } else {
+        //     console.log(`Username: ${username} and password: ${password} was not found`)
+        // }
+
+        // });   
     }
 })
 
