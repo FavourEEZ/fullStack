@@ -1,15 +1,3 @@
-// let getTime = '<%time%>'
-const timeHeader = document.getElementById("time-header");
-const dateHeader = document.getElementById("date-header");
-setInterval( () => {
-    let time = new Date()
-    // console.log(time);
-    // console.log(time.toLocaleDateString())
-    dateHeader.innerHTML = time.toDateString()
-    timeHeader.innerText = time.toLocaleTimeString()
-}, 1000
-)
-
 const getChart = document.getElementById("chart").getContext("2d");
 //TODO: Populate chart
 const myChart = new Chart(getChart, {
