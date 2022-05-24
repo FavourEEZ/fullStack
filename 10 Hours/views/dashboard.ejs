@@ -1,18 +1,23 @@
 <%- include('layouts/navbar') -%>
 
-<link rel="stylesheet" href="/stylesheets/home.css">
+<link rel="stylesheet" href="/stylesheets/dashboard.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 
-<% console.log(` In dashboard.ejs, username is: ${typeof username}`) %>
-<% if(typeof username === 'undefined') {%>
-<h1 style="text-align: left;">Welcome, here is your productivity history</h1>
-<% } else{ %>
-<h1 style="text-align: left;">Welcome <%=username %>, here is your productivity history</h1>    <% } %>
-<a href="/dashboard/entry"><p>Add a new entry</a>
-<div style="display: flex; justify-content: center;">
-    <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGdyYXBofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+<div class="wrapper-left">
+    <% console.log(` In dashboard.ejs, username is: ${typeof username}`) %>
+    <% if(typeof username === 'undefined') {%>
+    <h1>Welcome, here is your productivity history</h1>
+    <% } else{ %>
+    <h1>Welcome <%=username %>, here is your productivity history</h1>    <% } %>
+    <a href="/dashboard/entry"><p>Add a new entry</a>
+    <div class="div-img">
+        <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGdyYXBofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="">
+    </div>
 </div>
-<canvas id="chart" width="400" height="400"></canvas>
+
+<div class="wrapper-right">
+    <canvas id="chart" width="400" height="400"></canvas>
+</div>
 <script type="module" src="/javascript/dashboard.js"></script>
 
 <%- include('partials/footer') -%>

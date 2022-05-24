@@ -1,0 +1,20 @@
+.wrapper-left {
+    width: 70%;
+    float: left;
+}
+
+.wrapper-right {
+    /* margin-left: 10px; */
+    width: 30%;
+    float: right;
+    text-align: center;
+}
+
+h1 {
+    text-align: left;
+}
+
+.div-img{
+    display: flex; 
+    justify-content: center;
+}
