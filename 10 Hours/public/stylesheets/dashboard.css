@@ -1,13 +1,19 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
 .wrapper-left {
-    width: 70%;
+    width: 60%;
     float: left;
 }
 
 .wrapper-right {
     /* margin-left: 10px; */
-    width: 30%;
+    width: 40%;
     float: right;
     text-align: center;
+    margin-left: 50px;
 }
 
 h1 {
