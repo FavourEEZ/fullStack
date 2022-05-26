@@ -3,12 +3,14 @@
 <link rel="stylesheet" href="/stylesheets/dashboard.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 
-<% console.log(` In dashboard.ejs, username is: ${typeof username}`) %>
-<% if(typeof username === 'undefined') {%>
-<h1>Welcome, here is your productivity history</h1>
-<% } else{ %>
-<h1>Welcome <%=username %>, here is your productivity history</h1>    <% } %>
-<a href="/dashboard/entry"><p>Add a new entry</a>
+<section class="title-wrapper">
+    <% console.log(` In dashboard.ejs, username is: ${typeof username}`) %>
+    <% if(typeof username === 'undefined') {%>
+    <h1 style="text-align: center;">Welcome, here is your productivity history</h1>
+    <% } else{ %>
+    <h1 style="text-align: center;">Welcome <%=username %>, here is your productivity history</h1>    <% } %>
+    <a href="/dashboard/entry"><p>Add a new entry</a>    
+</section>
 
 <div class="wrapper">
 

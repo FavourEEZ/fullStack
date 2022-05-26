@@ -21,13 +21,18 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views")) //Allows us to run our server from any dir without outputing any errors. Get current dir for app.js and join the full path to /views 
 app.use(express.static(path.join(__dirname, 'public'))) //Serving static files. __dirname gets absolute path to app.js then adds public
 
-arr = [{username: "admin", email: "admin@admin.com", password: "admin"},
-    {username: "Natalie Portman", email: "natalieportman@gmail.com", password: "Genius"}]
+let userList = [{username: "admin", email: "admin@admin.com", password: "admin"},
+{username: "Natalie Portman", email: "natalieportman@gmail.com", password: "Genius"}]
 
-    function saveSignUps(username, email, password, res) {
+let leaderboardList = [{//username: "admin",
+                        date: [],
+                        hours: []},
+]
+
+function saveSignUps(username, email, password, res) {
     console.log("saveSignUps called");
-    arr.push({username, email, password})
-    console.log(`Amount of values: ${arr.length}`)
+    userList.push({username, email, password})
+    console.log(`Amount of values: ${userList.length}`)
     res.render("dashboard", {username: username})
 }
 
@@ -59,7 +64,11 @@ app.get("/dashboard", (req, res) =>{
 app.post("/dashboard", urlencodedParser, (req, res) =>{
     console.log("Post request from /entry:", req.body)
     const {date, hours} = req.body
-
+    leaderboardList.push({date, hours})
+    console.log(leaderboardList)
+    //TODO: How to get the currently signed in user? && Have it posted with the req body from the client side
+    //TODO: Make middleware to keep users signed in
+    //TODO: change res.render to res.redirect for routes like POST /signup
     res.render("dashboard")
 })
 
@@ -74,31 +83,16 @@ app.get("/login", (req, res) =>{
 app.post("/login", urlencodedParser, (req, res) =>{
     console.log(`Login Request body: `, req.body)
     const {username, password } = req.body;
-    if (arr.length === 0){
+    if (userList.length === 0){
         console.log("Please sign up first")
     } else {
-        let authenticated = arr.find(el => el.username === username && el.password === password);
+        let authenticated = userList.find(el => el.username === username && el.password === password);
         if (authenticated){
             console.log("Yesss!")
         } else {
             console.log(`Username: ${username} and password: ${password} was not found`)
             console.log("Password or username not found!") 
         }
-
-        // arr.forEach(element => {
-        //     // console.log(element)
-        // if (username === element.username && password === element.password){
-        //     console.log("You are in! Username and password checks")
-        //     res.render("dashboard", {username: username})
-        // } else if (username == element.username){
-        //     console.log("username checks")
-        // } else if (password == element.password) {
-        //     console.log("password checks")  
-        // } else {
-        //     console.log(`Username: ${username} and password: ${password} was not found`)
-        // }
-
-        // });   
     }
 })
 
