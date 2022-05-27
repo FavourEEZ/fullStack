@@ -1,6 +1,7 @@
 <%- include('layouts/navbar') -%>
 <h1>Most productive people today:</h1>
 <ul>
+    <% console.log(`topUsers is: ${typeof topUsers}`) %>
     <% for(let user of topUsers) { %>
     <li><%= user.name %>: <span><%= user.hours %></span></li>
     <% } %>

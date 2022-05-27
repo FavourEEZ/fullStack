@@ -24,10 +24,8 @@ app.use(express.static(path.join(__dirname, 'public'))) //Serving static files. 
 let userList = [{username: "admin", email: "admin@admin.com", password: "admin"},
 {username: "Natalie Portman", email: "natalieportman@gmail.com", password: "Genius"}]
 
-let leaderboardList = [{//username: "admin",
-                        date: [],
-                        hours: []},
-]
+let performanceTracker = [{date: "date1", hours: "0"}, 
+                          {date: "date2", hours: "0"}]
 
 function saveSignUps(username, email, password, res) {
     console.log("saveSignUps called");
@@ -50,6 +48,7 @@ app.get("/leaderboard", (req, res) => {
                 {name: "Tony Stark", hours: 12},
                 {name: "Thor", hours: 3},
                 {name: "FavourEEZ", hours: 18},
+                {name: "David", hours: 18},
                 {name: "Elisabeth Olsen", hours: 5},
 
           ]
@@ -64,12 +63,12 @@ app.get("/dashboard", (req, res) =>{
 app.post("/dashboard", urlencodedParser, (req, res) =>{
     console.log("Post request from /entry:", req.body)
     const {date, hours} = req.body
-    leaderboardList.push({date, hours})
-    console.log(leaderboardList)
+    performanceTracker.push({date, hours})
+    console.log(performanceTracker)
     //TODO: How to get the currently signed in user? && Have it posted with the req body from the client side
     //TODO: Make middleware to keep users signed in
     //TODO: change res.render to res.redirect for routes like POST /signup
-    res.render("dashboard")
+    res.render("dashboard", {userPerformance: performanceTracker})
 })
 
 app.get("/dashboard/entry", (req, res ) => {

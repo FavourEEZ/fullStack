@@ -22,7 +22,16 @@
     
     <div class="wrapper-right">
         <canvas id="chart" width="400" height="400"></canvas>
-    </div>
+        <% console.log(`userPerformance is ${typeof userPerformance}`) %>
+        <% if(typeof userPerformance != 'undefined') {%>
+        <ul>
+            <% for(let el of userPerformance) { %>
+            <li><%= el.date %> : <span><% el.hours %></span></li>
+            <% } %>
+        </ul>
+        <% } %>
+
+    </div>    
     <!-- TODO: Dashboard on the left, leaderboard on thr right -->
 </div>
 <script type="module" src="/javascript/dashboard.js"></script>
