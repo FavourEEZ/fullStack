@@ -8,6 +8,7 @@
     <li><%= user.name %>: <span><%= user.hours %></span></li>
     <% } %>
 </ul>
-<button onclick="sortbyLeaderboard()" ></button>
+<button id="btn" role="button">Sort List</button><!-- Use addEventListener instead of onclick as this error is returned Uncaught ReferenceError: sorting is not defined
+    at HTMLButtonElement.onclick  -->
 
 <%- include('partials/footer') -%>

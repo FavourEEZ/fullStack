@@ -1,5 +1,6 @@
-function sortbyLeaderboard(){
-    console.log("Clicked")
+function sorting(){
+    //hoursArray
+    console.log("Sorting has been clicked")
 }
 
 let hoursArray = [];
@@ -14,3 +15,8 @@ for (let i = 0; i < items.length; ++i) {
     hoursArray.push(parseInt(text))
     console.log(hoursArray)
 }
+
+const btn = document.getElementById("btn");
+btn.addEventListener("click", (e) =>{
+    sorting();
+})
